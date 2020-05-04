@@ -1,0 +1,28 @@
+syntax = "proto3";
+package porcupine;
+
+option csharp_namespace = "Porcupine";
+
+service StorageService {
+  rpc CopyFile (CopyFileRequest) returns (CopyFileResponse);
+  rpc CopyFolder (CopyFolderRequest) returns (stream CopyFolderItem);
+}
+
+message CopyFileRequest {
+  string source = 1;
+  string target = 2;
+}
+
+message CopyFileResponse {
+  string path = 1;  
+}
+
+message CopyFolderRequest {
+  string source = 1;
+  string target = 2;
+}
+
+message CopyFolderItem {
+  string name = 1;  
+  int64 size = 2;
+}

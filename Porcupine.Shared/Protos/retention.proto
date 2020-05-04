@@ -1,0 +1,19 @@
+syntax = "proto3";
+package porcupine;
+
+option csharp_namespace = "Porcupine";
+import "google/protobuf/timestamp.proto";
+
+service RetentionService {
+  rpc DeleteFiles (DeleteFilesRequest) returns (DeleteFilesResponse);
+}
+
+message DeleteFilesRequest {
+  string path = 1;
+  google.protobuf.Timestamp created_before = 5;
+}
+
+message DeleteFilesResponse {
+  int32 result = 1;  
+  string filename = 2;
+}
