@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using System.Threading;
 using Grpc.Net.Client;
 using Grpc.Core;
-
+ 
 namespace Porcupine.Client
 {
     class Program

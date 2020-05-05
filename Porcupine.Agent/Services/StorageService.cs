@@ -46,7 +46,7 @@ namespace Porcupine.Agent
                 file.CopyTo(newPath, true);
 
                 // Simulate long copy operation
-                await Task.Delay(TimeSpan.FromSeconds(1));
+                await Task.Delay(TimeSpan.FromMilliseconds(500));
 
                 if(context.CancellationToken.IsCancellationRequested)
                 {
