@@ -1,0 +1,55 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build Client",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/Porcupine.Client/Porcupine.Client.csproj"
+            ],
+            "problemMatcher": "$msCompile",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Publish Client",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "publish",
+                "${workspaceFolder}/Porcupine.Client/Porcupine.Client.csproj",
+                "-c", "Release", "-r", "win-x64", "/p:PublishSingleFile=true", "/p:PublishTrimmed=true"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Build Agent",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/Porcupine.Agent/Porcupine.Agent.csproj"
+            ],
+            "problemMatcher": "$msCompile",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Publish Agent",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "publish",
+                "${workspaceFolder}/Porcupine.Agent/Porcupine.Agent.csproj",
+                "-c", "Release", "-r", "win-x64", "/p:PublishSingleFile=true", "/p:PublishTrimmed=true"
+            ],
+            "problemMatcher": "$msCompile"
+        }        
+    ]
+}

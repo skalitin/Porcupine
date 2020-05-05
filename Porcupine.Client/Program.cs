@@ -40,6 +40,9 @@ namespace Porcupine.Client
             {
                 Console.WriteLine(ex.ToString());
             }
+
+            Console.WriteLine("Press any key to exit...");
+            Console.ReadKey();
         }
 
         private static async Task CopyFileTest(StorageService.StorageServiceClient client)
