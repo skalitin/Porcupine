@@ -18,11 +18,28 @@ namespace Porcupine.Client
             };
 
             var httpClient = new HttpClient(httpClientHandler);
-            using var channel = GrpcChannel.ForAddress("https://localhost:5001", new GrpcChannelOptions { HttpClient = httpClient });
-            var storageServiceClient = new StorageService.StorageServiceClient(channel);
 
-            await CopyFileTest(storageServiceClient);
-            await CopyFolderTest(storageServiceClient);
+            var server = "localhost";
+            if(args.Length == 1)
+            {
+                server = args[0];
+            }
+            var url = $"https://{server}:5001";
+
+            try
+            {
+                Console.WriteLine($"Server {url}");
+
+                using var channel = GrpcChannel.ForAddress($"https://{server}:5001", new GrpcChannelOptions { HttpClient = httpClient });
+                var storageServiceClient = new StorageService.StorageServiceClient(channel);
+
+                await CopyFileTest(storageServiceClient);
+                await CopyFolderTest(storageServiceClient);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
         }
 
         private static async Task CopyFileTest(StorageService.StorageServiceClient client)
