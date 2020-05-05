@@ -21,6 +21,14 @@ namespace Porcupine.Agent
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
+                    //webBuilder.ConfigureKestrel(options =>
+                    //{
+                    //    options.Listen(System.Net.IPAddress.Any, 5001, listenOptions =>
+                    //    {
+                    //        listenOptions.Protocols = Microsoft.AspNetCore.Server.Kestrel.Core.HttpProtocols.Http2;
+                    //    });
+                    //});
+
                     webBuilder.UseStartup<Startup>();
                 });
     }

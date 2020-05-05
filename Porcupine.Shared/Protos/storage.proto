@@ -2,10 +2,11 @@ syntax = "proto3";
 package porcupine;
 
 option csharp_namespace = "Porcupine";
+import "google/protobuf/timestamp.proto";
 
 service StorageService {
   rpc CopyFile (CopyFileRequest) returns (CopyFileResponse);
-  rpc CopyFolder (CopyFolderRequest) returns (stream CopyFolderItem);
+  rpc CopyFolder (CopyFolderRequest) returns (stream CopyFolderResponse);
 }
 
 message CopyFileRequest {
@@ -22,7 +23,7 @@ message CopyFolderRequest {
   string target = 2;
 }
 
-message CopyFolderItem {
-  string name = 1;  
-  int64 size = 2;
+message CopyFolderResponse {
+  string file_name = 1;
+  google.protobuf.Timestamp creation_timestamp = 2;
 }

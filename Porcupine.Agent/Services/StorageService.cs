@@ -28,7 +28,7 @@ namespace Porcupine.Agent
             });
         }
 
-        public override async Task CopyFolder(CopyFolderRequest request, IServerStreamWriter<CopyFolderItem> responseStream, ServerCallContext context)
+        public override async Task CopyFolder(CopyFolderRequest request, IServerStreamWriter<CopyFolderResponse> responseStream, ServerCallContext context)
         {
             _logger.LogDebug($"Copying folder {request.Source} to {request.Target}...");
 
@@ -54,7 +54,11 @@ namespace Porcupine.Agent
                     break;
                 }
 
-                await responseStream.WriteAsync(new CopyFolderItem { Name = file.Name });
+                var creationTimestamp = Google.Protobuf.WellKnownTypes.Timestamp.FromDateTime(DateTime.SpecifyKind(file.CreationTime, DateTimeKind.Utc));
+                await responseStream.WriteAsync(new CopyFolderResponse {
+                    FileName = file.Name,
+                    CreationTimestamp = creationTimestamp
+                });
             }
         }
     }

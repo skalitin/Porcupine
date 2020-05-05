@@ -44,7 +44,7 @@ namespace Porcupine.Client
             {
                 await foreach (var copyItem in streamingCall.ResponseStream.ReadAllAsync(cancellationTokenSource.Token))
                 {
-                    Console.WriteLine($"File copied: {copyItem.Name}");
+                    Console.WriteLine($"File copied: {copyItem.FileName}, created at {copyItem.CreationTimestamp.ToDateTime()}");
                 }
             }
             catch (RpcException ex) when (ex.StatusCode == StatusCode.Cancelled)
