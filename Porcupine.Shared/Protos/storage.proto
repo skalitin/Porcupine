@@ -12,6 +12,7 @@ service StorageService {
 message CopyFileRequest {
   string source = 1;
   string target = 2;
+  bool copy_permissions = 3;
 }
 
 message CopyFileResponse {

@@ -1,0 +1,16 @@
+syntax = "proto3";
+package porcupine_test;
+
+// message CopyFileRequest {
+//   string source = 1;
+//   string target = 2;
+//   bool copy_permissions = 3;
+// }
+
+// Decided that we don't need 'copy_permissions' anymore - removed
+// Decided that we need an another field 'overwrite_existing_file' - added 
+message CopyFileRequest {
+  string source = 1;
+  string target = 2;
+  bool overwrite_existing_file = 4;
+}

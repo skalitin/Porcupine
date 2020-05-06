@@ -5,13 +5,11 @@ VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Porcupine.Agent", "Porcupine.Agent\Porcupine.Agent.csproj", "{0FE47568-7B43-4EFD-870A-8C58BD2FA3D9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Porcupine.Agent.Tests", "Porcupine.Agent.Tests\Porcupine.Agent.Tests.csproj", "{6AF789F9-512D-4463-8DE8-CEDED41A6EB5}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Porcupine.Client", "Porcupine.Client\Porcupine.Client.csproj", "{3F7AB343-ACB2-45B6-A9A1-0B7CB99F2040}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Porcupine.Shared", "Porcupine.Shared\Porcupine.Shared.csproj", "{92A38D32-DEFC-453B-934C-0D08A100026D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Porcupine.Shared.Tests", "Porcupine.Shared.Tests\Porcupine.Shared.Tests.csproj", "{42621E3D-5EA5-4E61-8107-8E7C719AA0EB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Porcupine.Shared.Tests", "Porcupine.Shared.Tests\Porcupine.Shared.Tests.csproj", "{42621E3D-5EA5-4E61-8107-8E7C719AA0EB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +21,6 @@ Global
 		{0FE47568-7B43-4EFD-870A-8C58BD2FA3D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0FE47568-7B43-4EFD-870A-8C58BD2FA3D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0FE47568-7B43-4EFD-870A-8C58BD2FA3D9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6AF789F9-512D-4463-8DE8-CEDED41A6EB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6AF789F9-512D-4463-8DE8-CEDED41A6EB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6AF789F9-512D-4463-8DE8-CEDED41A6EB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6AF789F9-512D-4463-8DE8-CEDED41A6EB5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3F7AB343-ACB2-45B6-A9A1-0B7CB99F2040}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3F7AB343-ACB2-45B6-A9A1-0B7CB99F2040}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F7AB343-ACB2-45B6-A9A1-0B7CB99F2040}.Release|Any CPU.ActiveCfg = Release|Any CPU
