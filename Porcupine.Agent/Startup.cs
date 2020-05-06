@@ -33,6 +33,7 @@ namespace Porcupine.Agent
             {
                 endpoints.MapGrpcService<StorageService>();
                 endpoints.MapGrpcService<RetentionService>();
+                endpoints.MapGrpcService<AntimalwareService>();
 
                 endpoints.MapGet("/", async context =>
                 {

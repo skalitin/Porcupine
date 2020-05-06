@@ -20,6 +20,7 @@
   <ItemGroup>
     <Protobuf Include="Protos\storage.proto" />
     <Protobuf Include="Protos\retention.proto" />
+    <Protobuf Include="Protos\antimalware.proto" />
   </ItemGroup>
 
 </Project>
