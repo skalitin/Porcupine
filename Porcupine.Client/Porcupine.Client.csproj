@@ -18,4 +18,10 @@
     <ProjectReference Include="..\Porcupine.Shared\Porcupine.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Porcupine.pfx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

@@ -2,6 +2,7 @@
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Threading;
+using System.Security.Cryptography.X509Certificates;
 using Grpc.Net.Client;
 using Grpc.Core;
  
@@ -12,6 +13,9 @@ namespace Porcupine.Client
         static async Task Main(string[] args)
         {
             var httpClientHandler = new HttpClientHandler();
+            var clientCertificate = new X509Certificate2("Porcupine.pfx", "Test");
+
+            httpClientHandler.ClientCertificates.Add(clientCertificate);
             httpClientHandler.ServerCertificateCustomValidationCallback = (message, certificate, chain, errors) =>
             {
                 return certificate.Thumbprint == "0F99713078174F9954576BA45E76DAF520EF0B98";

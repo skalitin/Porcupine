@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Server.Kestrel.Https;
 
 namespace Porcupine.Agent
 {
@@ -19,13 +20,17 @@ namespace Porcupine.Agent
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    //webBuilder.ConfigureKestrel(options =>
-                    //{
-                    //    options.Listen(System.Net.IPAddress.Any, 5001, listenOptions =>
-                    //    {
-                    //        listenOptions.Protocols = Microsoft.AspNetCore.Server.Kestrel.Core.HttpProtocols.Http2;
-                    //    });
-                    //});
+                    webBuilder.ConfigureKestrel(options =>
+                    {
+                        options.ConfigureHttpsDefaults(httpsOptions =>
+                        {
+                            httpsOptions.ClientCertificateMode = ClientCertificateMode.AllowCertificate;
+                        });
+                        // options.Listen(System.Net.IPAddress.Any, 5001, listenOptions =>
+                        // {
+                        //     listenOptions.Protocols = Microsoft.AspNetCore.Server.Kestrel.Core.HttpProtocols.Http2;
+                        // });
+                    });
 
                     webBuilder.UseStartup<Startup>();
                 });
