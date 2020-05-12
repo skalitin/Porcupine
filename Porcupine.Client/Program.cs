@@ -13,12 +13,13 @@ namespace Porcupine.Client
         static async Task Main(string[] args)
         {
             var httpClientHandler = new HttpClientHandler();
-            var clientCertificate = new X509Certificate2("Porcupine.pfx", "Test");
 
+            var clientCertificate = new X509Certificate2("Porcupine.Client.pfx", "Test");
             httpClientHandler.ClientCertificates.Add(clientCertificate);
+
             httpClientHandler.ServerCertificateCustomValidationCallback = (message, certificate, chain, errors) =>
             {
-                return certificate.Thumbprint == "0F99713078174F9954576BA45E76DAF520EF0B98";
+                return certificate.Thumbprint == "F349F918CA0FA8D17C00866D5D0A0489ECEAF6A7";
             };
 
             var httpClient = new HttpClient(httpClientHandler);
